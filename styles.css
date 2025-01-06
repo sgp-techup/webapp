@@ -1,0 +1,586 @@
+:root {
+    /* Primary Colors */
+    --primary-blue: #0369a1;    /* Sky 700 */
+    --primary-teal: #0d9488;    /* Teal 600 */
+    
+    /* Background Colors */
+    --bg-main: #f8fafc;         /* Slate 50 */
+    --bg-card: #ffffff;         /* White */
+    --bg-hover: #f0fdfa;        /* Teal 50 */
+    
+    /* Text Colors */
+    --text-primary: #0f172a;    /* Slate 900 */
+    --text-secondary: #334155;  /* Slate 700 */
+    --text-muted: #64748b;      /* Slate 500 */
+    
+    /* Border & Accent Colors */
+    --border-light: #e2e8f0;    /* Slate 200 */
+    --border-medium: #cbd5e1;   /* Slate 300 */
+    --accent-blue: #0284c7;     /* Sky 600 */
+    --accent-teal: #14b8a6;     /* Teal 500 */
+    
+    /* Interactive States */
+    --hover-blue: #0ea5e9;      /* Sky 500 */
+    --hover-teal: #2dd4bf;      /* Teal 400 */
+    --focus-ring: #bae6fd;      /* Sky 200 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Header Styles */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 0;  /* Changed from 1rem */
+    padding: 2rem 1rem 1.5rem;  /* Changed from 2rem 1rem */
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+h1 {
+    font-size: 4rem;  /* Increased from 2.8rem */
+    color: var(--text-primary);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin: 1rem 0 0 0;
+    align-self: center;  /* Centers the subtitle */
+}
+
+.logo-icon {
+    font-size: 4rem;  /* Increased to match new title size */
+    color: var(--primary-blue);
+}
+
+.header-divider {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-teal));
+    margin: 2rem auto;  /* Changed from 3rem auto */
+}
+
+/* Search Styles */
+.search-group {
+    position: relative;
+    margin-top: 2rem;  /* Added this line */
+    margin-bottom: 2rem;
+}
+
+.search-group input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    font-size: 1.1rem;
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.search-group input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.search-group i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+/* Filters Container */
+.filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.filters-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Filter Section Styles */
+.filter-section {
+    position: relative;
+    background: var(--bg-card);
+    padding: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    transition: all 0.2s ease;
+}
+
+.filter-section:hover {
+    border-color: var(--accent-blue);
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.filter-header h3 {
+    flex: 1;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-header h3 i {
+    color: var(--primary-blue);
+}
+
+.select-all-button,
+.dropdown-toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.select-all-button:hover,
+.dropdown-toggle:hover {
+    color: var(--primary-blue);
+}
+
+.dropdown-toggle {
+    transition: transform 0.2s ease;
+}
+
+.filter-section.active .dropdown-toggle {
+    transform: rotate(180deg);
+}
+
+/* Filter Dropdown Styles */
+.filter-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 1rem;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section.active .filter-dropdown {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Checkbox Group Styles */
+.checkbox-group.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.checkbox-label:hover {
+    background-color: var(--bg-hover);
+}
+
+/* Active Filters Display */
+.active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    min-height: 24px;
+}
+
+.active-filter {
+    background: var(--bg-hover);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+/* Add the new styles here */
+.restaurant-details {
+    margin: 1rem 0;
+}
+
+.restaurant-details p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.restaurant-details i,
+.environment-info i {
+    width: 1.2rem;
+    color: var(--primary-blue);
+}
+
+.environment-info span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Results Grid */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 600px)); /* Two columns with max width */
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center; /* Center the grid columns */
+}
+
+.restaurant-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    width: 100%; /* Ensure cards fill their grid cell */
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-info {
+    padding: 1.5rem;
+}
+
+.restaurant-name {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+.website-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
+    font-weight: 500;
+}
+
+.website-link:hover {
+    color: var(--hover-blue);
+    text-decoration: underline;
+}
+
+.restaurant-cuisine,
+.restaurant-location,
+.restaurant-price {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.restaurant-rating {
+    color: var(--primary-teal);
+    font-weight: 500;
+}
+
+.environment-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Switch Toggle */
+.search-options {
+    display: flex;
+    justify-content: flex-end;
+    margin: 2rem 0;
+}
+
+.limit-results {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-medium);
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-blue);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-blue);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Initial State */
+.initial-state {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color: var(--text-muted);
+}
+
+.initial-state .search-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Results Container */
+#results {
+    position: relative;
+    min-height: 400px;
+}
+
+/* No Results State */
+.no-results {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+}
+
+/* Results Count */
+.results-count {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+/* Disclaimer */
+.disclaimer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Add reset button styles here */
+.reset-button {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.reset-button:hover {
+    background: var(--hover-blue);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .filters-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .filters-row {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-dropdown {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        border-radius: 12px 12px 0 0;
+        max-height: 60vh;
+        overflow-y: auto;
+        z-index: 1000;
+    }
+
+    .filter-section.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    /* Update these styles */
+    .logo-container {
+        flex-direction: row;  /* Keep icon and title in row */
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .title-container {
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 3rem;  /* Slightly smaller on mobile */
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .logo-icon {
+        font-size: 3rem;  /* Slightly smaller on mobile */
+    }
+
+    /* Add this line for the results grid */
+    .results-grid {
+        grid-template-columns: minmax(0, 600px); /* Single column with max width */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Update these styles */
+    h1 {
+        font-size: 2.5rem;  /* Even smaller on very small screens */
+    }
+
+    .logo-icon {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .restaurant-card {
+        margin: 0 -1rem;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calm Dine-In | Search for Restaurants that Suit your Senses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <i class="fa-solid fa-utensils logo-icon"></i>
+                <div class="title-container">
+                    <h1>Calm Dine-In</h1>
+                    <h2 class="subtitle">Search for Restaurants that Suit Your Senses</h2>
+                </div>
+            </div>
+            <div class="header-divider"></div>
+        </header>
+
+        <div class="search-group">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search restaurants...">
+        </div>
+        
+        <div class="filters-container">
+            <div class="filters-row">
+                <!-- Cuisine Filter -->
+                <div class="filter-section" data-filter="cuisine">
+                    <div class="filter-header">
+                        <h3>
+                            <i class="fa-solid fa-bowl-food"></i>
+                            <span>Cuisine</span>
+                        </h3>
+                        <button class="select-all-button" data-select-all="cuisine">
+                            <i class="fa-solid fa-check-double"></i>
+                        </button>
+                        <button class="dropdown-toggle">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="active-filters"></div>
+                    <div class="filter-dropdown">
+                        <div class="checkbox-group vertical">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="cuisine" value="asian">
+                                <span>Asian</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="cuisine" value="western">
+                                <span>Western</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="cuisine" value="other">
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Filter -->
+                <div class="filter-section" data-filter="location">
+                    <div class="filter-header">
+                        <h3>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Location</span>
+                        </h3>
+                        <button class="select-all-button" data-select-all="location">
+                            <i class="fa-solid fa-check-double"></i>
+                        </button>
+                        <button class="dropdown-toggle">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="active-filters"></div>
+                    <div class="filter-dropdown">
+                        <div class="checkbox-group vertical">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="location" value="central">
+                                <span>Central</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="location" value="north">
+                                <span>North</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="location" value="south">
+                                <span>South</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="location" value="east">
+                                <span>East</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="location" value="west">
+                                <span>West</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="filter-section" data-filter="rating">
+                    <div class="filter-header">
+                        <h3>
+                            <i class="fa-solid fa-star"></i>
+                            <span>Rating</span>
+                        </h3>
+                        <button class="select-all-button" data-select-all="rating">
+                            <i class="fa-solid fa-check-double"></i>
+                        </button>
+                        <button class="dropdown-toggle">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="active-filters"></div>
+                    <div class="filter-dropdown">
+                        <div class="checkbox-group vertical">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="rating" value="4.8">
+                                <span>4.8+</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="rating" value="4.5">
+                                <span>4.5+</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="rating" value="4.0">
+                                <span>4.0+</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Filter -->
+                <div class="filter-section" data-filter="price">
+                    <div class="filter-header">
+                        <h3>
+                            <i class="fa-solid fa-dollar-sign"></i>
+                            <span>Price</span>
+                        </h3>
+                        <button class="select-all-button" data-select-all="price">
+                            <i class="fa-solid fa-check-double"></i>
+                        </button>
+                        <button class="dropdown-toggle">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="active-filters"></div>
+                    <div class="filter-dropdown">
+                        <div class="checkbox-group vertical">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="price" value="$">
+                                <span>$</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="price" value="$$">
+                                <span>$$</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="price" value="$$$">
+                                <span>$$$</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="price" value="$$$$">
+                                <span>$$$$</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filters-row">
+                <!-- Noise Filter -->
+                <div class="filter-section" data-filter="noise">
+                    <div class="filter-header">
+                        <h3>
+                            <i class="fa-solid fa-volume-high"></i>
+                            <span>Noise Level</span>
+                        </h3>
+                        <button class="select-all-button" data-select-all="noise">
+                            <i class="fa-solid fa-check-double"></i>
+                        </button>
+                        <button class="dropdown-toggle">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="active-filters"></div>
+                    <div class="filter-dropdown">
+                        <div class="checkbox-group vertical">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="noise" value="quiet">
+                                <span>Quiet</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="noise" value="moderate">
+                                <span>Moderate</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="noise" value="loud">
+                                <span>Loud</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lighting Filter -->
+                <div class="filter-section" data-filter="lighting">
+                    <div class="filter-header">
+                        <h3>
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>Lighting</span>
+                        </h3>
+                        <button class="select-all-button" data-select-all="lighting">
+                            <i class="fa-solid fa-check-double"></i>
+                        </button>
+                        <button class="dropdown-toggle">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="active-filters"></div>
+                    <div class="filter-dropdown">
+                        <div class="checkbox-group vertical">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="lighting" value="dim">
+                                <span>Dim</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="lighting" value="moderate">
+                                <span>Moderate</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="lighting" value="bright">
+                                <span>Bright</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smell Filter -->
+                <div class="filter-section" data-filter="smell">
+                    <div class="filter-header">
+                        <h3>
+                            <i class="fa-solid fa-wind"></i>
+                            <span>Smell Level</span>
+                        </h3>
+                        <button class="select-all-button" data-select-all="smell">
+                            <i class="fa-solid fa-check-double"></i>
+                        </button>
+                        <button class="dropdown-toggle">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="active-filters"></div>
+                    <div class="filter-dropdown">
+                        <div class="checkbox-group vertical">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="smell" value="subtle">
+                                <span>Subtle</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="smell" value="moderate">
+                                <span>Moderate</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="smell" value="strong">
+                                <span>Strong</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temperature Filter -->
+                <div class="filter-section" data-filter="temperature">
+                    <div class="filter-header">
+                        <h3>
+                            <i class="fa-solid fa-temperature-half"></i>
+                            <span>Temperature</span>
+                        </h3>
+                        <button class="select-all-button" data-select-all="temperature">
+                            <i class="fa-solid fa-check-double"></i>
+                        </button>
+                        <button class="dropdown-toggle">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="active-filters"></div>
+                    <div class="filter-dropdown">
+                        <div class="checkbox-group vertical">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="temperature" value="cool">
+                                <span>Cool</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="temperature" value="moderate">
+                                <span>Moderate</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="temperature" value="warm">
+                                <span>Warm</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-options">
+            <div class="limit-results">
+                <label class="switch">
+                    <input type="checkbox" id="limitResults">
+                    <span class="slider round"></span>
+                </label>
+                <span class="limit-label">Show only top 3 matches</span>
+            </div>
+        </div>
+
+        <div id="results">
+            <!-- Results will be populated by JavaScript -->
+        </div>
+
+        <footer class="disclaimer">
+            <p>
+                <em>
+                    Disclaimer:<br>
+                    This website is created for learning purposes only. The information provided here should not be considered professional advice. 
+                    Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. 
+                    Any actions you take based on the contents of this website are at your own risk. 
+                    We are not liable for any losses or damages incurred from the use of this website.
+                </em>
+            </p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
